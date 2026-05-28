@@ -159,3 +159,60 @@ for i in range(qtd_eventos):
     areas_afetadas.append(area)
     intensidades.append(intensidade)
     ocorrencias.append(ocorr)
+
+    # 3. Análise de Dados
+# Conta o número total de eventos registrados.
+total_eventos = len(tipos_eventos)
+
+# Passa por todos os eventos para somar todas as áreas e as intensidades.
+soma_areas = 0.0
+soma_intensidades = 0.0
+for i in range(total_eventos):
+    soma_areas += areas_afetadas[i]
+    soma_intensidades += intensidades[i]
+
+# Calcula a média dividindo a soma de intensidades pelo número de eventos.
+media_intensidade = soma_intensidades / total_eventos
+
+# Encontra a maior área registrada e descobre em qual posição da lista ela está.
+maior_area = max(areas_afetadas)
+idx_maior_area = areas_afetadas.index(maior_area)
+
+# Separa as regiões e soma o número de ocorrências de cada uma delas.
+regioes_unicas = []
+soma_ocorr_regiao = []
+
+for i in range(total_eventos):
+    regiao_atual = regioes[i]
+    if regiao_atual not in regioes_unicas:
+        regioes_unicas.append(regiao_atual)
+        soma_ocorr_regiao.append(ocorrencias[i])
+    else:
+        idx_reg = regioes_unicas.index(regiao_atual)
+        soma_ocorr_regiao[idx_reg] += ocorrencias[i]
+
+# Descobre qual região teve a maior soma de ocorrências.
+max_ocorr_regiao = max(soma_ocorr_regiao)
+idx_regiao_mais_afetada = soma_ocorr_regiao.index(max_ocorr_regiao)
+regiao_campea_ocorrencias = regioes_unicas[idx_regiao_mais_afetada]
+
+# Calcula a densidade dividindo o total geral de ocorrências pela área total.
+soma_total_ocorrencias = 0
+for ocorr in ocorrencias:
+    soma_total_ocorrencias += ocorr
+densidade_media = soma_total_ocorrencias / soma_areas if soma_areas > 0 else 0
+
+# Conta quantos eventos tiveram uma intensidade maior que a média.
+eventos_acima_da_media = 0
+for i in range(total_eventos):
+    if intensidades[i] > media_intensidade:
+        eventos_acima_da_media += 1
+
+# Procura o evento mais crítico, usando a área como desempate se a intensidade for igual.
+idx_critico = 0
+for i in range(1, total_eventos):
+    if intensidades[i] > intensidades[idx_critico]:
+        idx_critico = i
+    elif intensidades[i] == intensidades[idx_critico]:
+        if areas_afetadas[i] > areas_afetadas[idx_critico]:
+            idx_critico = i
