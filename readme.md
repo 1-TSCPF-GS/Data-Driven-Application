@@ -68,7 +68,7 @@ cd Data-Driven-Application
 **2. Execute o arquivo principal:**
 
 ```bash
-python monitoramento.py
+python 26.1.GS.monitoramento.py
 ```
 
 > 💡 Em alguns sistemas, pode ser necessário usar `python3` no lugar de `python`.
@@ -119,7 +119,7 @@ Ao final, o sistema exibe automaticamente o **Relatório de Análise Ambiental**
 ## Estrutura do Código
 
 ```
-monitoramento.py
+26.1.GS.monitoramento.py
 │
 ├── Configuração de cores ANSI
 ├── Funções auxiliares de exibição
