@@ -216,3 +216,30 @@ for i in range(1, total_eventos):
     elif intensidades[i] == intensidades[idx_critico]:
         if areas_afetadas[i] > areas_afetadas[idx_critico]:
             idx_critico = i
+
+# 4. Relatório de Resultados
+# Imprime o relatório final formatando os números para melhor leitura na tela.
+print("\n========================================")
+print("RELATÓRIO DE ANÁLISE")
+print("========================================")
+print(f"Total de eventos registrados: {total_eventos}")
+print("----------------------------------------")
+print("Resumo Geral")
+print("----------------------------------------")
+print(f"Área total afetada: {soma_areas:.0f} km²")
+print(f"Média de intensidade: {media_intensidade:.1f}")
+print("----------------------------------------")
+print("Análises")
+print("----------------------------------------")
+print(f"Região com maior número de ocorrências: {regiao_campea_ocorrencias}")
+print(f"Quantidade de eventos acima da média de intensidade: {eventos_acima_da_media}")
+print(f"Densidade média de ocorrências: {densidade_media:.2f} ocorrências/km²")
+print("----------------------------------------")
+print("Evento Mais Crítico")
+print("----------------------------------------")
+print(f"Tipo: {tipos_eventos[idx_critico]}")
+print(f"Local: {cidades[idx_critico]}, {regioes[idx_critico]}, {paises[idx_critico]}")
+print(f"Intensidade: {intensidades[idx_critico]}")
+print(f"Área afetada: {areas_afetadas[idx_critico]:.0f} km²")
+print("========================================")
+print(f"Total de desastres registrados: {total_eventos}")
