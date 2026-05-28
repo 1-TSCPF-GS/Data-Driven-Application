@@ -5,9 +5,9 @@
 # Avaliação: 2026 1ª Global Solutions
 # ==============================================================================
 # INTEGRANTES:
-# 1. [Nome do Aluno 1] - RM: [XXXXX] (Representante)
-# 2. [Nome do Aluno 2] - RM: [XXXXX]
-# 3. [Nome do Aluno 3] - RM: [XXXXX]
+# 1. Gabrielle Trindade Ferreira - RM: 569092
+# 2. Halen Zhang - RM: 569733 (Representante)
+# 3. João Marcos Borba Rodrigues Gonçalves  - RM: 571021
 # ==============================================================================
 
 # ------------------------------------------------------------------------------
