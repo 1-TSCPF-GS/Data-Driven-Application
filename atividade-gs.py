@@ -31,3 +31,131 @@ ocorrencias = []
 print("======================================================================")
 print("     SISTEMA DE MONITORAMENTO ESPACIAL AMBIENTAL - BRASIL      ")
 print("======================================================================")
+
+# 1. Entrada de Dados e Validação
+# Pede ao usuário o total de eventos e repete a pergunta se o valor for inválido (menor ou igual a zero).
+while True:
+    try:
+        qtd_eventos = int(input("Insira a quantidade de eventos a serem registrados: "))
+        if qtd_eventos > 0:
+            break
+        print("Erro: A quantidade de eventos deve ser maior que zero.")
+    except ValueError:
+        print("Erro: Digite um número inteiro válido.")
+
+# Repete todo o bloco abaixo para a quantidade de eventos informada.
+for i in range(qtd_eventos):
+    print(f"\n--- Registrando Evento {i + 1} de {qtd_eventos} ---")
+
+    # Mostra um menu e garante que o usuário escolha apenas as opções de 1 a 4.
+    while True:
+        print("Selecione o tipo de evento:")
+        print("1 - Desmatamento")
+        print("2 - Queimadas")
+        print("3 - Variação Climática")
+        print("4 - Uso do Solo")
+        opcao_tipo = input("Opção (1 a 4): ").strip()
+
+        if opcao_tipo == '1':
+            tipo = "Desmatamento"
+            break
+        elif opcao_tipo == '2':
+            tipo = "Queimadas"
+            break
+        elif opcao_tipo == '3':
+            tipo = "Variação Climática"
+            break
+        elif opcao_tipo == '4':
+            tipo = "Uso do Solo"
+            break
+        else:
+            print("Erro: Opção inválida. Digite um número de 1 a 4.\n")
+
+    # Recebe o texto digitado pelo usuário para país.
+    pais = input("País: ").strip()
+
+    # Mostra um menu de regiões e força o usuário a escolher uma opção válida de 1 a 9.
+    while True:
+        print("Selecione a região:")
+        print("1 - NORTE")
+        print("2 - NORDESTE")
+        print("3 - LESTE")
+        print("4 - SUDESTE")
+        print("5 - SUL")
+        print("6 - SUDOESTE")
+        print("7 - OESTE")
+        print("8 - NOROESTE")
+        print("9 - CENTRO")
+        opcao_regiao = input("Opção (1 a 9): ").strip()
+
+        if opcao_regiao == '1':
+            regiao = "NORTE"
+            break
+        elif opcao_regiao == '2':
+            regiao = "NORDESTE"
+            break
+        elif opcao_regiao == '3':
+            regiao = "LESTE"
+            break
+        elif opcao_regiao == '4':
+            regiao = "SUDESTE"
+            break
+        elif opcao_regiao == '5':
+            regiao = "SUL"
+            break
+        elif opcao_regiao == '6':
+            regiao = "SUDOESTE"
+            break
+        elif opcao_regiao == '7':
+            regiao = "OESTE"
+            break
+        elif opcao_regiao == '8':
+            regiao = "NOROESTE"
+            break
+        elif opcao_regiao == '9':
+            regiao = "CENTRO"
+            break
+        else:
+            print("Erro: Opção inválida. Digite um número de 1 a 9.\n")
+
+    # Recebe o texto digitado pelo usuário para cidade.
+    cidade = input("Cidade: ").strip()
+
+    # Pede o tamanho da área e garante que o número digitado seja maior que zero.
+    while True:
+        try:
+            area = float(input("Área afetada (km²): "))
+            if area > 0:
+                break
+            print("Erro: A área afetada deve ser estritamente maior que zero.")
+        except ValueError:
+            print("Erro: Digite um valor numérico válido para a área.")
+
+    # Pede a intensidade e verifica se o número está dentro da escala de 1 a 10.
+    while True:
+        try:
+            intensidade = int(input("Intensidade do impacto (1 a 10): "))
+            if 1 <= intensidade <= 10:
+                break
+            print("Erro: A intensidade deve ser um número inteiro entre 1 e 10.")
+        except ValueError:
+            print("Erro: Digite um número inteiro válido.")
+
+    # Pede o número de ocorrências e garante que seja maior que zero.
+    while True:
+        try:
+            ocorr = int(input("Número de ocorrências detectadas: "))
+            if ocorr > 0:
+                break
+            print("Erro: O número de ocorrências deve ser maior que zero.")
+        except ValueError:
+            print("Erro: Digite um número inteiro válido.")
+
+    # Salva os dados validados nas listas, mantendo a ordem para o mesmo evento.
+    tipos_eventos.append(tipo)
+    paises.append(pais)
+    regioes.append(regiao)
+    cidades.append(cidade)
+    areas_afetadas.append(area)
+    intensidades.append(intensidade)
+    ocorrencias.append(ocorr)
